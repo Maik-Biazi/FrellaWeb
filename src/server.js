@@ -1,12 +1,19 @@
 const express = require("express")
 const server = express()
+const routes = require("./routes")
 
-server.get('/', (request,response)=>{
-    console.log('entrei no index')
 
-    return response.send('oii')
-})
+server.set('view engine', 'ejs')
 
+//habilitar arquivos statics
+server.use(express.static("public"))
+
+
+
+
+
+
+server.use(routes)
 server.listen(3000,()=>{
     console.log('rodando')
 })
